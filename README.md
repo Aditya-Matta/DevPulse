@@ -198,3 +198,7 @@ All responses: `{ success: true, data: ... }` or `{ success: false, message: "..
 | `room:message` | Bidirectional | `{ roomCode, text }` |
 | `room:participants` | Server → Client | `[{ userId, username }]` |
 | `room:leave` | Client → Server | `{ roomCode }` |
+
+**Aditya Matta**  
+B.Tech CST - MAIT, GGSIPU  
+[LinkedIn](https://www.linkedin.com/in/aditya-matta1922/) · [GitHub](https://github.com/Aditya-Matta)
