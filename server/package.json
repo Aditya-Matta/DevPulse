@@ -1,6 +1,9 @@
 {
   "name": "devpulse-server",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
   "description": "DevPulse API Server — Express + MongoDB + Socket.io + OpenAI",
   "main": "server.js",
   "scripts": {
