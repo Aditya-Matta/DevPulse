@@ -1,4 +1,4 @@
-# DevPulse 🚀
+# DevPulse 
 
 > **The Developer's Interview OS** — Track. Analyse. Land the Offer.
 
