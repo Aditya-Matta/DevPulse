@@ -1,0 +1,382 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────────
+   DevPulse Design System — Warm Minimal Editorial
+   Palette: cream, beige, sage, terracotta, charcoal
+   ───────────────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    /* Backgrounds */
+    --bg:          #faf9f7;
+    --bg-surface:  #ffffff;
+    --bg-raised:   #f5f2ed;
+    --bg-subtle:   #edeae3;
+    --bg-inset:    #e8e4dc;
+
+    /* Borders */
+    --border:       #e2ddd5;
+    --border-strong:#c8c2b8;
+
+    /* Text */
+    --text:   #1c1916;
+    --text-2: #6b6258;
+    --text-3: #9c9288;
+
+    /* Accent — sage green (not neon) */
+    --accent:       #4e6e41;
+    --accent-light: #638453;
+    --accent-muted: #eaf0e6;
+    --accent-fg:    #ffffff;
+
+    /* Semantic */
+    --success:    #3d7554;
+    --success-bg: #eaf4ee;
+    --danger:     #a84c42;
+    --danger-bg:  #f5eae9;
+    --warning:    #9a7030;
+    --warning-bg: #f7f0e2;
+
+    /* Shadows — soft, warm */
+    --shadow-xs: 0 1px 2px rgba(28,25,22,0.05);
+    --shadow-sm: 0 1px 4px rgba(28,25,22,0.08);
+    --shadow-md: 0 4px 16px rgba(28,25,22,0.08);
+    --shadow-lg: 0 8px 32px rgba(28,25,22,0.10);
+
+    /* Radii — subtle, not bubbly */
+    --r-sm: 5px;
+    --r-md: 8px;
+    --r-lg: 12px;
+    --r-xl: 16px;
+  }
+
+  /* ── Dark mode ───────────────────────────────────────────────── */
+  .dark {
+    --bg:          #1a1714;
+    --bg-surface:  #221e1a;
+    --bg-raised:   #2a2520;
+    --bg-subtle:   #322d27;
+    --bg-inset:    #3a3530;
+
+    --border:       #3e3830;
+    --border-strong:#524c44;
+
+    --text:   #f0ebe4;
+    --text-2: #9c9288;
+    --text-3: #6b6258;
+
+    --accent:       #7aaa60;
+    --accent-light: #8fc272;
+    --accent-muted: #1e2e18;
+    --accent-fg:    #ffffff;
+
+    --success:    #5da876;
+    --success-bg: #182a1e;
+    --danger:     #c07068;
+    --danger-bg:  #2a1818;
+    --warning:    #c09848;
+    --warning-bg: #2a2010;
+
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.2);
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.25);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  /* ── Reset & Base ────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    font-family: 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Serif Display', 'DM Sans', serif;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg-raised); }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+  /* Selection */
+  ::selection { background: var(--accent-muted); color: var(--accent); }
+
+  /* Focus */
+  *:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: var(--r-sm);
+  }
+
+  a { color: inherit; }
+  button, input, textarea, select { font-family: inherit; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Component Classes
+   ───────────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* ── Surface / Card ─────────────────────────────────────────── */
+  .surface {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+  }
+
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+    transform: translateY(-1px);
+  }
+
+  /* ── Buttons ─────────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 20px;
+    border-radius: var(--r-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+  .btn-primary {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--text-2);
+    border-color: var(--text-2);
+  }
+
+  .btn-secondary {
+    background: var(--bg-surface);
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background: var(--bg-raised);
+    border-color: var(--border-strong);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-2);
+    border-color: transparent;
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--bg-raised);
+    color: var(--text);
+  }
+
+  .btn-danger {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border-color: var(--danger-bg);
+  }
+  .btn-danger:hover:not(:disabled) {
+    border-color: var(--danger);
+    opacity: 0.85;
+  }
+
+  .btn-accent {
+    background: var(--accent);
+    color: var(--accent-fg);
+    border-color: var(--accent);
+  }
+  .btn-accent:hover:not(:disabled) {
+    background: var(--accent-light);
+    border-color: var(--accent-light);
+  }
+
+  .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
+  .btn-lg { padding: 12px 28px; font-size: 0.95rem; }
+
+  /* ── Form Inputs ─────────────────────────────────────────────── */
+  .input {
+    width: 100%;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 10px 14px;
+    font-size: 0.875rem;
+    color: var(--text);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    line-height: 1.5;
+  }
+  .input::placeholder { color: var(--text-3); }
+  .input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-muted);
+  }
+  .input:hover:not(:focus) { border-color: var(--border-strong); }
+
+  select.input { cursor: pointer; }
+  textarea.input { resize: vertical; min-height: 100px; }
+
+  /* ── Badges ─────────────────────────────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: var(--r-sm);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .badge-passed  { background: var(--success-bg); color: var(--success); }
+  .badge-failed  { background: var(--danger-bg);  color: var(--danger);  }
+  .badge-pending { background: var(--warning-bg); color: var(--warning); }
+  .badge-round   { background: var(--bg-raised);  color: var(--text-2); border: 1px solid var(--border); }
+
+  /* ── Tag chips ───────────────────────────────────────────────── */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 9px;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    color: var(--text-2);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* ── Navigation ─────────────────────────────────────────────── */
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 12px;
+    border-radius: var(--r-md);
+    color: var(--text-2);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.15s ease;
+  }
+  .nav-link:hover {
+    background: var(--bg-raised);
+    color: var(--text);
+  }
+  .nav-link.active {
+    background: var(--accent-muted);
+    color: var(--accent);
+  }
+  .nav-link .icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.65;
+    flex-shrink: 0;
+  }
+  .nav-link.active .icon { opacity: 1; }
+
+  /* ── Stat card ───────────────────────────────────────────────── */
+  .stat-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-xs);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .stat-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  /* ── Skeleton loader ─────────────────────────────────────────── */
+  .skeleton {
+    background: linear-gradient(90deg, var(--bg-raised) 25%, var(--bg-subtle) 50%, var(--bg-raised) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.6s ease infinite;
+    border-radius: var(--r-md);
+  }
+  @keyframes skeleton-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* ── Divider ─────────────────────────────────────────────────── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    border: none;
+    margin: 0;
+  }
+
+  /* ── Section label ───────────────────────────────────────────── */
+  .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Animations
+   ───────────────────────────────────────────────────────────────── */
+@layer utilities {
+  .page-enter {
+    animation: fade-up 0.35s ease both;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    animation: fade-in 0.3s ease both;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Staggered children */
+  .stagger > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger > *:nth-child(2) { animation-delay: 60ms; }
+  .stagger > *:nth-child(3) { animation-delay: 120ms; }
+  .stagger > *:nth-child(4) { animation-delay: 180ms; }
+  .stagger > *:nth-child(5) { animation-delay: 240ms; }
+}
