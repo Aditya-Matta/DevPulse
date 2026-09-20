@@ -205,4 +205,4 @@ All responses: `{ success: true, data: ... }` or `{ success: false, message: "..
 
 **Aditya Matta**  
 B.Tech CST - MAIT, GGSIPU  
-[LinkedIn](https://www.linkedin.com/in/aditya-matta1922/) · [GitHub](https://github.com/Aditya-Matta)
+[LinkedIn](https://www.linkedin.com/in/adityamatta) · [GitHub](https://github.com/Aditya-Matta)
